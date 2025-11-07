@@ -1,0 +1,34 @@
+# Scripted
+
+https://docs.lammps.org/Python_module.html
+
+I'm not sure whether the Python API can replace the writing of an input script.
+
+https://opencode.ai/docs
+
+## Use Cases
+
+### DAMASK
+DAMASK has a Python-based library for pre- and post-processing.
+It currently supports
+- Material configuration: General layout
+- Load case for the grid solver: General layout
+- 
+Lacks support for
+- MSC.Marc input deck (combined geometry and load case)
+- Load case for the mesh solver
+- Geometry for the mesh solver
+
+#### Constitutive Models
+The documentation for constitutive models is fragmented:
+- The physics are documented in scientific publications (some beyond a paywall)
+- Parameter names are documented in source code (Fortran)
+- Example files for specific materials are provided (in YAML format)
+
+#### Crystallographic Texture
+Example files for materials under different conditions can be provided, but variations are not trivial.
+An approach that might be more ammendable is the use of texture components.
+
+
+### LAMMPS
+LAMMPS is configured with a single confiuration file.

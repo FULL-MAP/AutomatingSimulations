@@ -1,0 +1,14 @@
+# Automating Simulations
+
+Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run.
+Large Language Models (LLMs) can provide support for that.
+
+As part of the FULL-MAP project, co-researchers to support the simulation setup will be developed.
+The considered simulation tools are DAMASK and LAMMPS.
+
+## Technical Aspects
+
+### MCP
+
+### ollama
+[ollama](https://ollama.com)

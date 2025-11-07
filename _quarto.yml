@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: 'Automating Simulations'
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: direct.qmd
+        text: Direct
+      - href: scripted.qmd
+        text: Scripted
+  page-footer: 'Copyright 2025, Martin Diehl'
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+

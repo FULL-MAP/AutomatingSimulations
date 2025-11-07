@@ -1,0 +1,43 @@
+# Direct Support for Manual Creation of Input files
+
+Most simulation software can be controlled with (a set of) configuration files.
+These files are typically text files, i.e. they can be edited manually.
+LLMs can support this process.
+
+## Challenges
+Conventional tools are mainly used for syntax checks, i.e. they know very little about the semantics.
+That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context.
+This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.
+
+Support for binary formats would be difficult.
+
+Plain LLM's are not particularly good at math, i.e. they will be less suited to respect contraints such as "the norm of the four numbers making up a unit quaternion should be 1.0".
+
+## Technical Aspects
+[Language Server Protocol](https://microsoft.github.io/language-server-protocol), more information on [langserver.org](https://langserver.org).
+
+[Tree-sitter](https://tree-sitter.github.io/tree-sitter)
+
+### LSP Implementations
+- [LSP-AI](https://github.com/SilasMarvin/lsp-ai)
+- [llm-ls](https://github.com/huggingface/llm-ls)
+- [llm-lsp](https://github.com/rosarp/llm-lsp)
+- [LSP](https://mcpmarket.com/server/lsp) (MCP)
+- [cclsp](https://github.com/ktnyt/cclsp) (MCP)
+- [MCP LSP Bridge](https://github.com/rockerBOO/mcp-lsp-bridge) (MCP)
+- [GitHub Copilot Language Server](https://github.com/github/copilot-language-server-release)
+- [llmvm](https://github.com/djandries/llmvm): Different approach, needs existing LSP.
+- [llm-lsp.nvim](https://github.com/amirsalarsafaei/llm-lsp.nvim): Hybrid, specific to neovim.
+
+## Use Cases
+
+### DAMASK
+DAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.
+
+### LAMMPS
+LAMMPS is configured with a single confiuration file.
+
+## Conclusions
+
+## Links
+https://docs.lammps.org/commands_list.html
