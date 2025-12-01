@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\n\n\n\n\nollama"
+  },
+  {
+    "objectID": "index.html#technical-aspects",
+    "href": "index.html#technical-aspects",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "ollama"
+  },
+  {
+    "objectID": "direct.html",
+    "href": "direct.html",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Most simulation software can be controlled with (a set of) configuration files. These files are typically text files, i.e. they can be edited manually. LLMs can support this process.\n\n\nConventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”.\n\n\n\nLanguage Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim.\n\n\n\n\n\n\n\nDAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file.\n\n\n\n\n\n\n\nhttps://docs.lammps.org/commands_list.html"
+  },
+  {
+    "objectID": "direct.html#challenges",
+    "href": "direct.html#challenges",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Conventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”."
+  },
+  {
+    "objectID": "direct.html#technical-aspects",
+    "href": "direct.html#technical-aspects",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Language Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim."
+  },
+  {
+    "objectID": "direct.html#use-cases",
+    "href": "direct.html#use-cases",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "DAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file."
+  },
+  {
+    "objectID": "direct.html#links",
+    "href": "direct.html#links",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "https://docs.lammps.org/commands_list.html"
+  },
+  {
+    "objectID": "scripted.html",
+    "href": "scripted.html",
+    "title": "Scripted",
+    "section": "",
+    "text": "https://docs.lammps.org/Python_module.html\nI’m not sure whether the Python API can replace the writing of an input script.\nhttps://opencode.ai/docs\n\n\n\n\nDAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+  },
+  {
+    "objectID": "scripted.html#use-cases",
+    "href": "scripted.html#use-cases",
+    "title": "Scripted",
+    "section": "",
+    "text": "DAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+  }
+]
