@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\n\n\n\n\nollama"
-  },
-  {
-    "objectID": "index.html#technical-aspects",
-    "href": "index.html#technical-aspects",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "ollama"
-  },
-  {
     "objectID": "direct.html",
     "href": "direct.html",
     "title": "Direct Support for Manual Creation of Input files",
@@ -47,6 +33,20 @@
     "title": "Direct Support for Manual Creation of Input files",
     "section": "",
     "text": "https://docs.lammps.org/commands_list.html"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\n\n\n\n\nollama"
+  },
+  {
+    "objectID": "index.html#technical-aspects",
+    "href": "index.html#technical-aspects",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "ollama"
   },
   {
     "objectID": "scripted.html",
