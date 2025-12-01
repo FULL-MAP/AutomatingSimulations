@@ -6,9 +6,38 @@ Large Language Models (LLMs) can provide support for that.
 As part of the FULL-MAP project, co-researchers to support the simulation setup will be developed.
 The considered simulation tools are DAMASK and LAMMPS.
 
+## Questions
+- aside from fine-tuning a code LLM, what could be other techniques:
+    - [RAG](https://huggingface.co/docs/transformers/en/model_doc/rag) - less expensive.
+- if fine-tuning then dataset generation?
+	- we have the intended outputs from the simulation software examples
+	- we dont have the natural language description of the scripts for example: "write an lammps script to compute the melting point of Copper" - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing
+    - we also do not have any dataset available for DAMASK - we have to create that
+- benchmarking?
+	- performance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset
+
 ## Technical Aspects
 
 ### MCP
 
 ### ollama
 [ollama](https://ollama.com)
+
+### Training strategies
+- Create input, run simulation: expensive
+- For LAMMPS: use existing checker
+- For DAMASK: YAML Lint (Python tool)
+
+## Further links
+- [BentoML](https://bentoml.com)
+- [FINALES2](https://github.com/BIG-MAP/FINALES2)
+- <https://github.com/huggingface/llm-ls>
+- <https://github.com/rosarp/llm-lsp>
+- <https://opencode.ai>
+- <https://crates.io/crates/llm-lsp>
+- <https://github.com/chenghao-wu/mcp_lammps>
+- <https://github.com/SilasMarvin/lsp-ai>
+- [FINALES2](https://github.com/BIG-MAP/FINALES2)
+- [AlloyBert](https://doi.org/10.1016/j.commatsci.2024.113256)
+- [AlloyGPT](https://doi.org/10.21203/rs.3.rs-6067058/v1)
+- <https://deepwiki.com/damask-multiphysics/DAMASK>
