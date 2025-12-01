@@ -287,11 +287,14 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#automating-simulations" id="toc-automating-simulations" class="nav-link active" data-scroll-target="#automating-simulations">Automating Simulations</a>
   <ul class="collapse">
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects">Technical Aspects</a>
   <ul class="collapse">
   <li><a href="#mcp" id="toc-mcp" class="nav-link" data-scroll-target="#mcp">MCP</a></li>
   <li><a href="#ollama" id="toc-ollama" class="nav-link" data-scroll-target="#ollama">ollama</a></li>
+  <li><a href="#training-strategies" id="toc-training-strategies" class="nav-link" data-scroll-target="#training-strategies">Training strategies</a></li>
   </ul></li>
+  <li><a href="#further-links" id="toc-further-links" class="nav-link" data-scroll-target="#further-links">Further links</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -307,6 +310,25 @@ ul.task-list li input[type="checkbox"] {
 <h1>Automating Simulations</h1>
 <p>Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.</p>
 <p>As part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.</p>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ul>
+<li>aside from fine-tuning a code LLM, what could be other techniques:
+<ul>
+<li><a href="https://huggingface.co/docs/transformers/en/model_doc/rag">RAG</a> - less expensive.</li>
+</ul></li>
+<li>if fine-tuning then dataset generation?
+<ul>
+<li>we have the intended outputs from the simulation software examples</li>
+<li>we dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing</li>
+<li>we also do not have any dataset available for DAMASK - we have to create that</li>
+</ul></li>
+<li>benchmarking?
+<ul>
+<li>performance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset</li>
+</ul></li>
+</ul>
+</section>
 <section id="technical-aspects" class="level2">
 <h2 class="anchored" data-anchor-id="technical-aspects">Technical Aspects</h2>
 <section id="mcp" class="level3">
@@ -315,9 +337,34 @@ ul.task-list li input[type="checkbox"] {
 <section id="ollama" class="level3">
 <h3 class="anchored" data-anchor-id="ollama">ollama</h3>
 <p><a href="https://ollama.com">ollama</a></p>
-
-
 </section>
+<section id="training-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="training-strategies">Training strategies</h3>
+<ul>
+<li>Create input, run simulation: expensive</li>
+<li>For LAMMPS: use existing checker</li>
+<li>For DAMASK: YAML Lint (Python tool)</li>
+</ul>
+</section>
+</section>
+<section id="further-links" class="level2">
+<h2 class="anchored" data-anchor-id="further-links">Further links</h2>
+<ul>
+<li><a href="https://bentoml.com">BentoML</a></li>
+<li><a href="https://github.com/BIG-MAP/FINALES2">FINALES2</a></li>
+<li><a href="https://github.com/huggingface/llm-ls" class="uri">https://github.com/huggingface/llm-ls</a></li>
+<li><a href="https://github.com/rosarp/llm-lsp" class="uri">https://github.com/rosarp/llm-lsp</a></li>
+<li><a href="https://opencode.ai" class="uri">https://opencode.ai</a></li>
+<li><a href="https://crates.io/crates/llm-lsp" class="uri">https://crates.io/crates/llm-lsp</a></li>
+<li><a href="https://github.com/chenghao-wu/mcp_lammps" class="uri">https://github.com/chenghao-wu/mcp_lammps</a></li>
+<li><a href="https://github.com/SilasMarvin/lsp-ai" class="uri">https://github.com/SilasMarvin/lsp-ai</a></li>
+<li><a href="https://github.com/BIG-MAP/FINALES2">FINALES2</a></li>
+<li><a href="https://doi.org/10.1016/j.commatsci.2024.113256">AlloyBert</a></li>
+<li><a href="https://doi.org/10.21203/rs.3.rs-6067058/v1">AlloyGPT</a></li>
+<li><a href="https://deepwiki.com/damask-multiphysics/DAMASK" class="uri">https://deepwiki.com/damask-multiphysics/DAMASK</a></li>
+</ul>
+
+
 </section>
 </section>
 

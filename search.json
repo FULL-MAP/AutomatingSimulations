@@ -39,14 +39,28 @@
     "href": "index.html",
     "title": "Automating Simulations",
     "section": "",
-    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\n\n\n\n\nollama"
+    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\naside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset\n\n\n\n\n\n\n\n\n\n\nollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)\n\n\n\n\n\n\nBentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nFINALES2\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK"
+  },
+  {
+    "objectID": "index.html#questions",
+    "href": "index.html#questions",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "aside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset"
   },
   {
     "objectID": "index.html#technical-aspects",
     "href": "index.html#technical-aspects",
     "title": "Automating Simulations",
     "section": "",
-    "text": "ollama"
+    "text": "ollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)"
+  },
+  {
+    "objectID": "index.html#further-links",
+    "href": "index.html#further-links",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "BentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nFINALES2\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK"
   },
   {
     "objectID": "scripted.html",
