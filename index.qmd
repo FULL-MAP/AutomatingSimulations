@@ -37,7 +37,8 @@ The considered simulation tools are DAMASK and LAMMPS.
 - <https://crates.io/crates/llm-lsp>
 - <https://github.com/chenghao-wu/mcp_lammps>
 - <https://github.com/SilasMarvin/lsp-ai>
-- [FINALES2](https://github.com/BIG-MAP/FINALES2)
 - [AlloyBert](https://doi.org/10.1016/j.commatsci.2024.113256)
 - [AlloyGPT](https://doi.org/10.21203/rs.3.rs-6067058/v1)
 - <https://deepwiki.com/damask-multiphysics/DAMASK>
+- <https://agentskills.so>
+- <https://blog.fsck.com>
