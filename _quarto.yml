@@ -11,6 +11,10 @@ website:
         text: Direct
       - href: scripted.qmd
         text: Scripted
+      - href: literature-notes.qmd
+        text: Literature Notes
+      - href: prototype-notes.qmd
+        text: Prototype Notes
   page-footer: 'Copyright 2025, Martin Diehl'
 
 format:
@@ -18,6 +22,8 @@ format:
     theme:
       light: flatly
       dark: darkly
+    mermaid: 
+      theme: neutral
     css: styles.css
     toc: true
 
