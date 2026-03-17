@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "scripted.html",
+    "href": "scripted.html",
+    "title": "Scripted",
+    "section": "",
+    "text": "https://docs.lammps.org/Python_module.html\nI’m not sure whether the Python API can replace the writing of an input script.\nhttps://opencode.ai/docs\n\n\n\n\nDAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+  },
+  {
+    "objectID": "scripted.html#use-cases",
+    "href": "scripted.html#use-cases",
+    "title": "Scripted",
+    "section": "",
+    "text": "DAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+  },
+  {
     "objectID": "direct.html",
     "href": "direct.html",
     "title": "Direct Support for Manual Creation of Input files",
@@ -63,17 +77,94 @@
     "text": "BentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK\nhttps://agentskills.so\nhttps://blog.fsck.com"
   },
   {
-    "objectID": "scripted.html",
-    "href": "scripted.html",
-    "title": "Scripted",
+    "objectID": "prototype-notes.html",
+    "href": "prototype-notes.html",
+    "title": "Prototype Notes",
     "section": "",
-    "text": "https://docs.lammps.org/Python_module.html\nI’m not sure whether the Python API can replace the writing of an input script.\nhttps://opencode.ai/docs\n\n\n\n\nDAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+    "text": "This page documents notes and observations from prototype work exploring retrieval-augmented generation (RAG) implementation."
   },
   {
-    "objectID": "scripted.html#use-cases",
-    "href": "scripted.html#use-cases",
-    "title": "Scripted",
-    "section": "",
-    "text": "DAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
+    "objectID": "prototype-notes.html#llm-fundamentals",
+    "href": "prototype-notes.html#llm-fundamentals",
+    "title": "Prototype Notes",
+    "section": "LLM Fundamentals",
+    "text": "LLM Fundamentals\nLarge language models primarily generate text-based outputs.\nFor tasks such as image generation, speech synthesis, or code execution, additional specialized models or tools are typically used alongside the LLM.\nDuring training:\n\nText is broken down into tokens\nEach token corresponds to a unique textual unit\nTokens can represent:\n\nfull words\npartial words\npunctuation or symbol combinations\n\n\nEach token is assigned a token ID, and text becomes a sequence of these IDs.\nThe model’s objective is: predict the next token given the preceding tokens in the sequence.\nPrediction is computed using:\n\ntoken embeddings\nweights learned during training\ncontextual relationships between tokens (e.g., how frequently tokens appear together)."
+  },
+  {
+    "objectID": "prototype-notes.html#tokenization",
+    "href": "prototype-notes.html#tokenization",
+    "title": "Prototype Notes",
+    "section": "Tokenization",
+    "text": "Tokenization\nTokenization determines how raw text is converted into tokens.\n\nCommon Methods\nWord Tokenization\n\nText split into individual words using delimiters such as spaces.\n\nCharacter Tokenization\n\nText split into individual characters.\n\nSubword Tokenization\n\nFrequently used words remain intact.\nRare words are broken into smaller components.\n\nFor example, models such as GPT use subword tokenization."
+  },
+  {
+    "objectID": "prototype-notes.html#context-window",
+    "href": "prototype-notes.html#context-window",
+    "title": "Prototype Notes",
+    "section": "Context Window",
+    "text": "Context Window\nLLMs have limits on how many tokens they can process.\nThis limit is called the context window.\nThe context window includes:\n\ninput tokens\noutput tokens generated by the model\n\nIf the limit is exceeded, earlier parts of the input may be truncated.\nThis constraint is one of the motivations for using retrieval-based approaches such as RAG."
+  },
+  {
+    "objectID": "prototype-notes.html#embeddings",
+    "href": "prototype-notes.html#embeddings",
+    "title": "Prototype Notes",
+    "section": "Embeddings",
+    "text": "Embeddings\nEmbeddings represent text as numerical vectors capturing semantic meaning.\nDifferent models produce different embedding representations.\nReference documentation:\nhttps://ai.google.dev/gemini-api/docs/embeddings\nEmbeddings allow models to:\n\nmeasure similarity between texts\ncluster related documents\nretrieve relevant context for queries."
+  },
+  {
+    "objectID": "prototype-notes.html#vector-representations",
+    "href": "prototype-notes.html#vector-representations",
+    "title": "Prototype Notes",
+    "section": "Vector Representations",
+    "text": "Vector Representations\nText can be encoded as different types of vectors.\n\nSparse Vectors\nCharacteristics:\n\nencode explicit token identity\nlength equal to dictionary size\ncontain many zeros\n\n\n\nDense Vectors\nCharacteristics:\n\nencode semantic meaning\ncompact representation\nfewer zero values\n\nDense vectors are commonly used in modern embedding models."
+  },
+  {
+    "objectID": "prototype-notes.html#similarity-search",
+    "href": "prototype-notes.html#similarity-search",
+    "title": "Prototype Notes",
+    "section": "Similarity Search",
+    "text": "Similarity Search\nVector databases retrieve relevant documents using similarity metrics.\nCommon methods include:\nDot Product\n\nmeasures similarity between vectors.\n\nK-Nearest Neighbors (KNN)\n\nretrieves the closest vectors based on distance metrics.\n\nApproximate Nearest Neighbors (ANN)\n\nimproves efficiency for large vector datasets\ncommonly used in production retrieval systems."
+  },
+  {
+    "objectID": "prototype-notes.html#retriever-centric-improvements",
+    "href": "prototype-notes.html#retriever-centric-improvements",
+    "title": "Prototype Notes",
+    "section": "Retriever-Centric Improvements",
+    "text": "Retriever-Centric Improvements\nSome research focuses on improving the retrieval stage of RAG rather than modifying the language model itself.\nGoals include:\n\nimproving document relevance\nreducing hallucinations\nincreasing retrieval accuracy."
+  },
+  {
+    "objectID": "prototype-notes.html#chunking",
+    "href": "prototype-notes.html#chunking",
+    "title": "Prototype Notes",
+    "section": "Chunking",
+    "text": "Chunking\nChunking refers to splitting documents into smaller units before generating embeddings.\nThis is necessary because:\n\nLLM context windows are limited\nembeddings typically work best on smaller text segments.\n\nChunking strategy significantly affects retrieval quality.\n\nCommon Chunking Strategies\nDocument-level chunking\n\neach document treated as one unit.\n\nPage-based chunking\n\nchunks created based on page boundaries.\n\nText-block chunking\n\nchunks generated based on natural paragraph boundaries."
+  },
+  {
+    "objectID": "prototype-notes.html#chunking-a-large-pdf",
+    "href": "prototype-notes.html#chunking-a-large-pdf",
+    "title": "Prototype Notes",
+    "section": "Chunking a Large PDF",
+    "text": "Chunking a Large PDF\nThe LAMMPS manual is a 3000+ page PDF.\nTo use it within a RAG system:\n\nExtract text from the PDF\nSeparate metadata such as:\n\ntitle\nauthor\npublication date\n\nApply chunking\nConvert chunks into embeddings\nStore embeddings in a vector database.\n\nChunking must preserve semantic coherence so that the retriever can identify meaningful context."
+  },
+  {
+    "objectID": "prototype-notes.html#prototype-workflow",
+    "href": "prototype-notes.html#prototype-workflow",
+    "title": "Prototype Notes",
+    "section": "Prototype Workflow",
+    "text": "Prototype Workflow\nThe workflow currently implemented is:\n\nChat model initialization\nEmbedding model initialization\nVector store setup\nDocument loading\nText splitting\nStoring document embeddings\nRAG agent creation\nPrompting and query handling\n\nEach stage includes configurable parameters that affect the quality of retrieval and generation."
+  },
+  {
+    "objectID": "prototype-notes.html#implementation-framework",
+    "href": "prototype-notes.html#implementation-framework",
+    "title": "Prototype Notes",
+    "section": "Implementation Framework",
+    "text": "Implementation Framework\nThe prototype currently uses LangChain.\nAdvantages:\n\nextensive third-party integrations\nmodular components for LLMs, embeddings, and vector stores\neasier experimentation with different RAG architectures."
+  },
+  {
+    "objectID": "prototype-notes.html#references",
+    "href": "prototype-notes.html#references",
+    "title": "Prototype Notes",
+    "section": "References",
+    "text": "References\n\nhttps://arxiv.org/pdf/2312.10997\nhttps://arxiv.org/pdf/2005.11401\nhttps://docs.langchain.com/oss/python/integrations/chat/huggingface\nBuild a semantic search engine with LangChain"
   }
 ]

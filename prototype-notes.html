@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>scripted – Automating Simulations</title>
+<title>Prototype Notes – Automating Simulations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Direct</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./scripted.html" aria-current="page"> 
+    <a class="nav-link" href="./scripted.html"> 
 <span class="menu-text">Scripted</span></a>
   </li>  
 </ul>
@@ -285,50 +285,350 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#scripted" id="toc-scripted" class="nav-link active" data-scroll-target="#scripted">Scripted</a>
+  <li><a href="#llm-fundamentals" id="toc-llm-fundamentals" class="nav-link active" data-scroll-target="#llm-fundamentals">LLM Fundamentals</a></li>
+  <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a>
   <ul class="collapse">
-  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a>
+  <li><a href="#common-methods" id="toc-common-methods" class="nav-link" data-scroll-target="#common-methods">Common Methods</a></li>
+  </ul></li>
+  <li><a href="#context-window" id="toc-context-window" class="nav-link" data-scroll-target="#context-window">Context Window</a></li>
+  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings</a></li>
+  <li><a href="#retrieval-augmented-generation-rag" id="toc-retrieval-augmented-generation-rag" class="nav-link" data-scroll-target="#retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</a>
   <ul class="collapse">
-  <li><a href="#damask" id="toc-damask" class="nav-link" data-scroll-target="#damask">DAMASK</a></li>
-  <li><a href="#lammps" id="toc-lammps" class="nav-link" data-scroll-target="#lammps">LAMMPS</a></li>
+  <li><a href="#vector-representations" id="toc-vector-representations" class="nav-link" data-scroll-target="#vector-representations">Vector Representations</a>
+  <ul class="collapse">
+  <li><a href="#sparse-vectors" id="toc-sparse-vectors" class="nav-link" data-scroll-target="#sparse-vectors">Sparse Vectors</a></li>
+  <li><a href="#dense-vectors" id="toc-dense-vectors" class="nav-link" data-scroll-target="#dense-vectors">Dense Vectors</a></li>
   </ul></li>
+  <li><a href="#similarity-search" id="toc-similarity-search" class="nav-link" data-scroll-target="#similarity-search">Similarity Search</a></li>
+  <li><a href="#retriever-centric-improvements" id="toc-retriever-centric-improvements" class="nav-link" data-scroll-target="#retriever-centric-improvements">Retriever-Centric Improvements</a></li>
+  <li><a href="#chunking" id="toc-chunking" class="nav-link" data-scroll-target="#chunking">Chunking</a>
+  <ul class="collapse">
+  <li><a href="#common-chunking-strategies" id="toc-common-chunking-strategies" class="nav-link" data-scroll-target="#common-chunking-strategies">Common Chunking Strategies</a></li>
   </ul></li>
+  <li><a href="#chunking-a-large-pdf" id="toc-chunking-a-large-pdf" class="nav-link" data-scroll-target="#chunking-a-large-pdf">Chunking a Large PDF</a></li>
+  </ul></li>
+  <li><a href="#prototype-implementation" id="toc-prototype-implementation" class="nav-link" data-scroll-target="#prototype-implementation">Prototype Implementation</a>
+  <ul class="collapse">
+  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a></li>
+  <li><a href="#prototype-workflow" id="toc-prototype-workflow" class="nav-link" data-scroll-target="#prototype-workflow">Prototype Workflow</a></li>
+  <li><a href="#implementation-framework" id="toc-implementation-framework" class="nav-link" data-scroll-target="#implementation-framework">Implementation Framework</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo">TODO</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Prototype Notes</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="scripted" class="level1">
-<h1>Scripted</h1>
-<p>https://docs.lammps.org/Python_module.html</p>
-<p>I’m not sure whether the Python API can replace the writing of an input script.</p>
-<p>https://opencode.ai/docs</p>
-<section id="use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
-<section id="damask" class="level3">
-<h3 class="anchored" data-anchor-id="damask">DAMASK</h3>
-<p>DAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver</p>
-<section id="constitutive-models" class="level4">
-<h4 class="anchored" data-anchor-id="constitutive-models">Constitutive Models</h4>
-<p>The documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)</p>
+</header>
+
+
+<p>This page documents notes and observations from prototype work exploring retrieval-augmented generation (RAG) implementation.</p>
+<hr>
+<section id="llm-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="llm-fundamentals">LLM Fundamentals</h2>
+<p>Large language models primarily generate <strong>text-based outputs</strong>.<br>
+For tasks such as image generation, speech synthesis, or code execution, additional specialized models or tools are typically used alongside the LLM.</p>
+<p>During training:</p>
+<ul>
+<li>Text is broken down into <strong>tokens</strong></li>
+<li>Each token corresponds to a <strong>unique textual unit</strong></li>
+<li>Tokens can represent:
+<ul>
+<li>full words</li>
+<li>partial words</li>
+<li>punctuation or symbol combinations</li>
+</ul></li>
+</ul>
+<p>Each token is assigned a <strong>token ID</strong>, and text becomes a sequence of these IDs.</p>
+<p>The model’s objective is: <strong>predict the next token</strong> given the preceding tokens in the sequence.</p>
+<p>Prediction is computed using:</p>
+<ul>
+<li>token embeddings</li>
+<li>weights learned during training</li>
+<li>contextual relationships between tokens (e.g., how frequently tokens appear together).</li>
+</ul>
+<hr>
 </section>
-<section id="crystallographic-texture" class="level4">
-<h4 class="anchored" data-anchor-id="crystallographic-texture">Crystallographic Texture</h4>
-<p>Example files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.</p>
+<section id="tokenization" class="level2">
+<h2 class="anchored" data-anchor-id="tokenization">Tokenization</h2>
+<p>Tokenization determines how raw text is converted into tokens.</p>
+<section id="common-methods" class="level3">
+<h3 class="anchored" data-anchor-id="common-methods">Common Methods</h3>
+<p><strong>Word Tokenization</strong></p>
+<ul>
+<li>Text split into individual words using delimiters such as spaces.</li>
+</ul>
+<p><strong>Character Tokenization</strong></p>
+<ul>
+<li>Text split into individual characters.</li>
+</ul>
+<p><strong>Subword Tokenization</strong></p>
+<ul>
+<li>Frequently used words remain intact.</li>
+<li>Rare words are broken into smaller components.</li>
+</ul>
+<p>For example, models such as <strong>GPT</strong> use <strong>subword tokenization</strong>.</p>
+<hr>
 </section>
 </section>
-<section id="lammps" class="level3">
-<h3 class="anchored" data-anchor-id="lammps">LAMMPS</h3>
-<p>LAMMPS is configured with a single confiuration file.</p>
+<section id="context-window" class="level2">
+<h2 class="anchored" data-anchor-id="context-window">Context Window</h2>
+<p>LLMs have limits on how many tokens they can process.</p>
+<p>This limit is called the <strong>context window</strong>.</p>
+<p>The context window includes:</p>
+<ul>
+<li>input tokens</li>
+<li>output tokens generated by the model</li>
+</ul>
+<p>If the limit is exceeded, earlier parts of the input may be truncated.</p>
+<p>This constraint is one of the motivations for using <strong>retrieval-based approaches such as RAG</strong>.</p>
+<hr>
+</section>
+<section id="embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="embeddings">Embeddings</h2>
+<p>Embeddings represent text as <strong>numerical vectors</strong> capturing semantic meaning.</p>
+<p>Different models produce different embedding representations.</p>
+<p>Reference documentation:<br>
+https://ai.google.dev/gemini-api/docs/embeddings</p>
+<p>Embeddings allow models to:</p>
+<ul>
+<li>measure similarity between texts</li>
+<li>cluster related documents</li>
+<li>retrieve relevant context for queries.</li>
+</ul>
+<hr>
+</section>
+<section id="retrieval-augmented-generation-rag" class="level1">
+<h1>Retrieval-Augmented Generation (RAG)</h1>
+<p>Main reference article:<br>
+https://en.wikipedia.org/wiki/Retrieval-augmented_generation</p>
+<p>RAG combines <strong>information retrieval systems with language models</strong>.</p>
+<p>Instead of relying solely on the knowledge encoded in the model weights, RAG retrieves relevant external documents.</p>
+<p>General workflow:</p>
+<ol type="1">
+<li>Source data is converted into <strong>embeddings</strong></li>
+<li>Embeddings are stored in a <strong>vector database</strong></li>
+<li>A user query is converted into an embedding</li>
+<li>A <strong>retriever</strong> identifies the most relevant documents</li>
+<li>Retrieved context is added to the prompt</li>
+<li>The LLM generates a response using both the query and retrieved information</li>
+</ol>
+<hr>
+<section id="vector-representations" class="level2">
+<h2 class="anchored" data-anchor-id="vector-representations">Vector Representations</h2>
+<p>Text can be encoded as different types of vectors.</p>
+<section id="sparse-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="sparse-vectors">Sparse Vectors</h3>
+<p>Characteristics:</p>
+<ul>
+<li>encode explicit token identity</li>
+<li>length equal to dictionary size</li>
+<li>contain many zeros</li>
+</ul>
+</section>
+<section id="dense-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="dense-vectors">Dense Vectors</h3>
+<p>Characteristics:</p>
+<ul>
+<li>encode semantic meaning</li>
+<li>compact representation</li>
+<li>fewer zero values</li>
+</ul>
+<p>Dense vectors are commonly used in modern embedding models.</p>
+<hr>
+</section>
+</section>
+<section id="similarity-search" class="level2">
+<h2 class="anchored" data-anchor-id="similarity-search">Similarity Search</h2>
+<p>Vector databases retrieve relevant documents using similarity metrics.</p>
+<p>Common methods include:</p>
+<p><strong>Dot Product</strong></p>
+<ul>
+<li>measures similarity between vectors.</li>
+</ul>
+<p><strong>K-Nearest Neighbors (KNN)</strong></p>
+<ul>
+<li>retrieves the closest vectors based on distance metrics.</li>
+</ul>
+<p><strong>Approximate Nearest Neighbors (ANN)</strong></p>
+<ul>
+<li>improves efficiency for large vector datasets</li>
+<li>commonly used in production retrieval systems.</li>
+</ul>
+<hr>
+</section>
+<section id="retriever-centric-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="retriever-centric-improvements">Retriever-Centric Improvements</h2>
+<p>Some research focuses on improving the <strong>retrieval stage</strong> of RAG rather than modifying the language model itself.</p>
+<p>Goals include:</p>
+<ul>
+<li>improving document relevance</li>
+<li>reducing hallucinations</li>
+<li>increasing retrieval accuracy.</li>
+</ul>
+<hr>
+</section>
+<section id="chunking" class="level2">
+<h2 class="anchored" data-anchor-id="chunking">Chunking</h2>
+<p>Chunking refers to splitting documents into smaller units before generating embeddings.</p>
+<p>This is necessary because:</p>
+<ul>
+<li>LLM context windows are limited</li>
+<li>embeddings typically work best on smaller text segments.</li>
+</ul>
+<p>Chunking strategy significantly affects retrieval quality.</p>
+<section id="common-chunking-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="common-chunking-strategies">Common Chunking Strategies</h3>
+<p><strong>Document-level chunking</strong></p>
+<ul>
+<li>each document treated as one unit.</li>
+</ul>
+<p><strong>Page-based chunking</strong></p>
+<ul>
+<li>chunks created based on page boundaries.</li>
+</ul>
+<p><strong>Text-block chunking</strong></p>
+<ul>
+<li>chunks generated based on natural paragraph boundaries.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="chunking-a-large-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="chunking-a-large-pdf">Chunking a Large PDF</h2>
+<p>The LAMMPS manual is a 3000+ page PDF.</p>
+<p>To use it within a RAG system:</p>
+<ul>
+<li>Extract text from the PDF</li>
+<li>Separate metadata such as:
+<ul>
+<li>title</li>
+<li>author</li>
+<li>publication date</li>
+</ul></li>
+<li>Apply chunking</li>
+<li>Convert chunks into embeddings</li>
+<li>Store embeddings in a vector database.</li>
+</ul>
+<p>Chunking must preserve semantic coherence so that the retriever can identify meaningful context.</p>
+<hr>
+</section>
+</section>
+<section id="prototype-implementation" class="level1">
+<h1>Prototype Implementation</h1>
+<p>The current prototype follows a typical RAG pipeline.</p>
+<section id="core-components" class="level3">
+<h3 class="anchored" data-anchor-id="core-components">Core Components</h3>
+<p>Three main elements are required:</p>
+<ol type="1">
+<li><strong>Chat model</strong>
+<ul>
+<li>used for generating responses</li>
+</ul></li>
+<li><strong>Embedding model</strong>
+<ul>
+<li>converts text into vector representations</li>
+</ul></li>
+<li><strong>Vector database</strong>
+<ul>
+<li>stores embeddings and supports similarity search.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="prototype-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="prototype-workflow">Prototype Workflow</h2>
+<p>The workflow currently implemented is:</p>
+<ol type="1">
+<li>Chat model initialization</li>
+<li>Embedding model initialization</li>
+<li>Vector store setup</li>
+<li>Document loading</li>
+<li>Text splitting</li>
+<li>Storing document embeddings</li>
+<li>RAG agent creation</li>
+<li>Prompting and query handling</li>
+</ol>
+<p>Each stage includes configurable parameters that affect the quality of retrieval and generation.</p>
+<hr>
+</section>
+<section id="implementation-framework" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-framework">Implementation Framework</h2>
+<p>The prototype currently uses <strong>LangChain</strong>.</p>
+<p>Advantages:</p>
+<ul>
+<li>extensive third-party integrations</li>
+<li>modular components for LLMs, embeddings, and vector stores</li>
+<li>easier experimentation with different RAG architectures.</li>
+</ul>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://arxiv.org/pdf/2312.10997">https://arxiv.org/pdf/2312.10997</a></li>
+<li><a href="https://arxiv.org/pdf/2005.11401">https://arxiv.org/pdf/2005.11401</a></li>
+<li><a href="https://docs.langchain.com/oss/python/integrations/chat/huggingface">https://docs.langchain.com/oss/python/integrations/chat/huggingface</a></li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/knowledge-base">Build a semantic search engine with LangChain</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="todo" class="level1">
+<h1>TODO</h1>
+<ul>
+<li><strong>Questions</strong>
+<ul class="task-list">
+<li><label><input type="checkbox">should the documentation be accessed as a static pdf downloaded (may get outdated after a major release or miss new additions) or we should use web-scraping to dynamically access the documentation using <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a></label></li>
+<li><label><input type="checkbox">optimum chunking parameters</label></li>
+<li><label><input type="checkbox">is it best to use <code>faiss</code> or something else like <code>chromaDB</code> for indexing</label></li>
+<li><label><input type="checkbox">better prompt design when creating the agent (read prompt engineering)</label></li>
+</ul></li>
+<li><strong>Copilot-like Assistant</strong>
+<ul>
+<li>it must work inside the file editing and either “generate” or “complete” the script from the current script context
+<ul>
+<li><code>code completion</code>: the llm use predicts the next lines of the script from the current file.</li>
+<li><code>contextual generation</code>: “write a script to calculate diffusion coefficient of X in Y alloy via LAMMPS”</li>
+</ul></li>
+<li>possible system components:
+<ul>
+<li>backend:
+<ul>
+<li>lammps RAG using <code>langchain</code></li>
+<li>using lammps documentation for retrieval</li>
+<li>api endpoint</li>
+</ul></li>
+<li>frontend as a VS code extention?
+<ul>
+<li>reads editor context</li>
+<li>sends request to backend</li>
+<li>displays suggestion</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
