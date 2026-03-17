@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Prototype Notes – Automating Simulations</title>
+<title>Literature Notes – Automating Simulations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,6 +72,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -269,11 +272,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Scripted</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./literature-notes.html"> 
+    <a class="nav-link active" href="./literature-notes.html" aria-current="page"> 
 <span class="menu-text">Literature Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./prototype-notes.html" aria-current="page"> 
+    <a class="nav-link" href="./prototype-notes.html"> 
 <span class="menu-text">Prototype Notes</span></a>
   </li>  
 </ul>
@@ -293,36 +296,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#llm-fundamentals" id="toc-llm-fundamentals" class="nav-link active" data-scroll-target="#llm-fundamentals">LLM Fundamentals</a></li>
-  <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a>
+  <li><a href="#literature-map" id="toc-literature-map" class="nav-link active" data-scroll-target="#literature-map">Literature Map</a></li>
+  <li><a href="#thematic-areas" id="toc-thematic-areas" class="nav-link" data-scroll-target="#thematic-areas">Thematic Areas</a></li>
+  <li><a href="#paper-notes" id="toc-paper-notes" class="nav-link" data-scroll-target="#paper-notes">Paper Notes</a>
   <ul class="collapse">
-  <li><a href="#common-methods" id="toc-common-methods" class="nav-link" data-scroll-target="#common-methods">Common Methods</a></li>
+  <li><a href="#generative-retrieval-augmented-ontologic-graph-and-multiagent-strategies-for-interpretive-large-language-model-based-materials-design" id="toc-generative-retrieval-augmented-ontologic-graph-and-multiagent-strategies-for-interpretive-large-language-model-based-materials-design" class="nav-link" data-scroll-target="#generative-retrieval-augmented-ontologic-graph-and-multiagent-strategies-for-interpretive-large-language-model-based-materials-design">Generative Retrieval-Augmented Ontologic Graph and Multiagent Strategies for Interpretive Large Language Model-Based Materials Design</a></li>
+  <li><a href="#developing-large-language-models-for-quantum-chemistry-simulation-input-generation" id="toc-developing-large-language-models-for-quantum-chemistry-simulation-input-generation" class="nav-link" data-scroll-target="#developing-large-language-models-for-quantum-chemistry-simulation-input-generation">Developing Large Language Models for Quantum Chemistry Simulation Input Generation</a></li>
+  <li><a href="#applications-of-natural-language-processing-and-large-language-models-in-materials-discovery" id="toc-applications-of-natural-language-processing-and-large-language-models-in-materials-discovery" class="nav-link" data-scroll-target="#applications-of-natural-language-processing-and-large-language-models-in-materials-discovery">Applications of Natural Language Processing and Large Language Models in Materials Discovery</a></li>
+  <li><a href="#mattools-benchmarking-large-language-models-for-materials-science-tools" id="toc-mattools-benchmarking-large-language-models-for-materials-science-tools" class="nav-link" data-scroll-target="#mattools-benchmarking-large-language-models-for-materials-science-tools">MatTools: Benchmarking Large Language Models for Materials Science Tools</a></li>
+  <li><a href="#enabling-large-language-models-for-real-world-materials-discovery" id="toc-enabling-large-language-models-for-real-world-materials-discovery" class="nav-link" data-scroll-target="#enabling-large-language-models-for-real-world-materials-discovery">Enabling Large Language Models for Real-World Materials Discovery</a></li>
+  <li><a href="#foundation-models-for-materials-discovery-current-state-and-future-directions" id="toc-foundation-models-for-materials-discovery-current-state-and-future-directions" class="nav-link" data-scroll-target="#foundation-models-for-materials-discovery-current-state-and-future-directions">Foundation Models for Materials Discovery – Current State and Future Directions</a></li>
+  <li><a href="#a-fine-tuned-large-language-model-based-molecular-dynamics-agent-for-code-generation-to-obtain-material-thermodynamic-parameters" id="toc-a-fine-tuned-large-language-model-based-molecular-dynamics-agent-for-code-generation-to-obtain-material-thermodynamic-parameters" class="nav-link" data-scroll-target="#a-fine-tuned-large-language-model-based-molecular-dynamics-agent-for-code-generation-to-obtain-material-thermodynamic-parameters">A Fine-Tuned Large Language Model Based Molecular Dynamics Agent for Code Generation to Obtain Material Thermodynamic Parameters</a></li>
+  <li><a href="#agentic-framework-for-programmatic-crystal-structure-generation-using-a-fine-tuned-workersupervisor-large-language-model" id="toc-agentic-framework-for-programmatic-crystal-structure-generation-using-a-fine-tuned-workersupervisor-large-language-model" class="nav-link" data-scroll-target="#agentic-framework-for-programmatic-crystal-structure-generation-using-a-fine-tuned-workersupervisor-large-language-model">Agentic Framework for Programmatic Crystal Structure Generation Using a Fine-Tuned Worker–Supervisor Large Language Model</a></li>
   </ul></li>
-  <li><a href="#context-window" id="toc-context-window" class="nav-link" data-scroll-target="#context-window">Context Window</a></li>
-  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings</a></li>
-  <li><a href="#retrieval-augmented-generation-rag" id="toc-retrieval-augmented-generation-rag" class="nav-link" data-scroll-target="#retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</a>
-  <ul class="collapse">
-  <li><a href="#vector-representations" id="toc-vector-representations" class="nav-link" data-scroll-target="#vector-representations">Vector Representations</a>
-  <ul class="collapse">
-  <li><a href="#sparse-vectors" id="toc-sparse-vectors" class="nav-link" data-scroll-target="#sparse-vectors">Sparse Vectors</a></li>
-  <li><a href="#dense-vectors" id="toc-dense-vectors" class="nav-link" data-scroll-target="#dense-vectors">Dense Vectors</a></li>
-  </ul></li>
-  <li><a href="#similarity-search" id="toc-similarity-search" class="nav-link" data-scroll-target="#similarity-search">Similarity Search</a></li>
-  <li><a href="#retriever-centric-improvements" id="toc-retriever-centric-improvements" class="nav-link" data-scroll-target="#retriever-centric-improvements">Retriever-Centric Improvements</a></li>
-  <li><a href="#chunking" id="toc-chunking" class="nav-link" data-scroll-target="#chunking">Chunking</a>
-  <ul class="collapse">
-  <li><a href="#common-chunking-strategies" id="toc-common-chunking-strategies" class="nav-link" data-scroll-target="#common-chunking-strategies">Common Chunking Strategies</a></li>
-  </ul></li>
-  <li><a href="#chunking-a-large-pdf" id="toc-chunking-a-large-pdf" class="nav-link" data-scroll-target="#chunking-a-large-pdf">Chunking a Large PDF</a></li>
-  </ul></li>
-  <li><a href="#prototype-implementation" id="toc-prototype-implementation" class="nav-link" data-scroll-target="#prototype-implementation">Prototype Implementation</a>
-  <ul class="collapse">
-  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a></li>
-  <li><a href="#prototype-workflow" id="toc-prototype-workflow" class="nav-link" data-scroll-target="#prototype-workflow">Prototype Workflow</a></li>
-  <li><a href="#implementation-framework" id="toc-implementation-framework" class="nav-link" data-scroll-target="#implementation-framework">Implementation Framework</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo">TODO</a></li>
   </ul>
 </nav>
     </div>
@@ -332,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prototype Notes</h1>
+<h1 class="title">Literature Notes</h1>
 </div>
 
 
@@ -349,294 +335,143 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page documents notes and observations from prototype work exploring retrieval-augmented generation (RAG) implementation.</p>
+<p>This page summarizes research papers on the use of large language models in materials science workflows, particularly for simulation code generation, retrieval-augmented generation, and agentic systems. The goal is to track emerging methods and implementation patterns relevant to computational materials research.</p>
 <hr>
-<section id="llm-fundamentals" class="level2">
-<h2 class="anchored" data-anchor-id="llm-fundamentals">LLM Fundamentals</h2>
-<p>Large language models primarily generate <strong>text-based outputs</strong>.<br>
-For tasks such as image generation, speech synthesis, or code execution, additional specialized models or tools are typically used alongside the LLM.</p>
-<p>During training:</p>
-<ul>
-<li>Text is broken down into <strong>tokens</strong></li>
-<li>Each token corresponds to a <strong>unique textual unit</strong></li>
-<li>Tokens can represent:
-<ul>
-<li>full words</li>
-<li>partial words</li>
-<li>punctuation or symbol combinations</li>
-</ul></li>
-</ul>
-<p>Each token is assigned a <strong>token ID</strong>, and text becomes a sequence of these IDs.</p>
-<p>The model’s objective is: <strong>predict the next token</strong> given the preceding tokens in the sequence.</p>
-<p>Prediction is computed using:</p>
-<ul>
-<li>token embeddings</li>
-<li>weights learned during training</li>
-<li>contextual relationships between tokens (e.g., how frequently tokens appear together).</li>
-</ul>
-<hr>
-</section>
-<section id="tokenization" class="level2">
-<h2 class="anchored" data-anchor-id="tokenization">Tokenization</h2>
-<p>Tokenization determines how raw text is converted into tokens.</p>
-<section id="common-methods" class="level3">
-<h3 class="anchored" data-anchor-id="common-methods">Common Methods</h3>
-<p><strong>Word Tokenization</strong></p>
-<ul>
-<li>Text split into individual words using delimiters such as spaces.</li>
-</ul>
-<p><strong>Character Tokenization</strong></p>
-<ul>
-<li>Text split into individual characters.</li>
-</ul>
-<p><strong>Subword Tokenization</strong></p>
-<ul>
-<li>Frequently used words remain intact.</li>
-<li>Rare words are broken into smaller components.</li>
-</ul>
-<p>For example, models such as <strong>GPT</strong> use <strong>subword tokenization</strong>.</p>
-<hr>
-</section>
-</section>
-<section id="context-window" class="level2">
-<h2 class="anchored" data-anchor-id="context-window">Context Window</h2>
-<p>LLMs have limits on how many tokens they can process.</p>
-<p>This limit is called the <strong>context window</strong>.</p>
-<p>The context window includes:</p>
-<ul>
-<li>input tokens</li>
-<li>output tokens generated by the model</li>
-</ul>
-<p>If the limit is exceeded, earlier parts of the input may be truncated.</p>
-<p>This constraint is one of the motivations for using <strong>retrieval-based approaches such as RAG</strong>.</p>
+<section id="literature-map" class="level2">
+<h2 class="anchored" data-anchor-id="literature-map">Literature Map</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+
+classDef review fill:#e8f0ff,stroke:#3b6edc
+classDef code fill:#e8ffe8,stroke:#2e8b57
+classDef bench fill:#fff4e6,stroke:#d48806
+classDef agent fill:#f6e8ff,stroke:#7a3ddc
+
+A[LLMs for Materials Science]
+
+A --&gt; B[Reviews]
+A --&gt; C[Code Generation]
+A --&gt; D[Benchmarking]
+A --&gt; E[Agentic Frameworks]
+
+B --&gt; B1[Applications of NLP and LLMs in Materials Discovery 2025]
+B --&gt; B2[Enabling LLMs for Real-World Materials Discovery 2024]
+B --&gt; B3[Foundation Models for Materials Discovery 2025]
+
+C --&gt; C1[Generative Retrieval-Augmented Ontologic Graph 2024]
+C --&gt; C2[Quantum Chemistry Input Generation 2025]
+C --&gt; C3[Molecular Dynamics Agent 2025]
+
+D --&gt; D1[MatTools Benchmark 2025]
+
+E --&gt; E1[Crystal Structure Generation Agent 2026]
+
+class B,B1,B2,B3 review
+class C,C1,C2,C3 code
+class D,D1 bench
+class E,E1 agent
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <hr>
 </section>
-<section id="embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="embeddings">Embeddings</h2>
-<p>Embeddings represent text as <strong>numerical vectors</strong> capturing semantic meaning.</p>
-<p>Different models produce different embedding representations.</p>
-<p>Reference documentation:<br>
-https://ai.google.dev/gemini-api/docs/embeddings</p>
-<p>Embeddings allow models to:</p>
+<section id="thematic-areas" class="level2">
+<h2 class="anchored" data-anchor-id="thematic-areas">Thematic Areas</h2>
 <ul>
-<li>measure similarity between texts</li>
-<li>cluster related documents</li>
-<li>retrieve relevant context for queries.</li>
+<li><p>Review Articles: Survey papers describing the landscape of LLM applications in materials science and identifying challenges</p></li>
+<li><p>LLMs for Code Generation: Work focusing on generating simulation scripts, computational workflows, or scientific programs from natural language prompts.</p></li>
+<li><p>Benchmarking: Research evaluating LLM performance on domain-specific tasks such as materials simulation code generation.</p></li>
+<li><p>Agentic Frameworks: Systems where multiple LLM agents collaborate to generate and validate outputs.</p></li>
 </ul>
 <hr>
 </section>
-<section id="retrieval-augmented-generation-rag" class="level1">
-<h1>Retrieval-Augmented Generation (RAG)</h1>
-<p>Main reference article:<br>
-https://en.wikipedia.org/wiki/Retrieval-augmented_generation</p>
-<p>RAG combines <strong>information retrieval systems with language models</strong>.</p>
-<p>Instead of relying solely on the knowledge encoded in the model weights, RAG retrieves relevant external documents.</p>
-<p>General workflow:</p>
-<ol type="1">
-<li>Source data is converted into <strong>embeddings</strong></li>
-<li>Embeddings are stored in a <strong>vector database</strong></li>
-<li>A user query is converted into an embedding</li>
-<li>A <strong>retriever</strong> identifies the most relevant documents</li>
-<li>Retrieved context is added to the prompt</li>
-<li>The LLM generates a response using both the query and retrieved information</li>
-</ol>
-<hr>
-<section id="vector-representations" class="level2">
-<h2 class="anchored" data-anchor-id="vector-representations">Vector Representations</h2>
-<p>Text can be encoded as different types of vectors.</p>
-<section id="sparse-vectors" class="level3">
-<h3 class="anchored" data-anchor-id="sparse-vectors">Sparse Vectors</h3>
-<p>Characteristics:</p>
+<section id="paper-notes" class="level2">
+<h2 class="anchored" data-anchor-id="paper-notes">Paper Notes</h2>
+<section id="generative-retrieval-augmented-ontologic-graph-and-multiagent-strategies-for-interpretive-large-language-model-based-materials-design" class="level3">
+<h3 class="anchored" data-anchor-id="generative-retrieval-augmented-ontologic-graph-and-multiagent-strategies-for-interpretive-large-language-model-based-materials-design">Generative Retrieval-Augmented Ontologic Graph and Multiagent Strategies for Interpretive Large Language Model-Based Materials Design</h3>
 <ul>
-<li>encode explicit token identity</li>
-<li>length equal to dictionary size</li>
-<li>contain many zeros</li>
+<li>DOI:</li>
+<li>Repo: <a href="https://github.com/lamm-mit/MeLM">https://github.com/lamm-mit/MeLM</a></li>
+</ul>
+<p><strong>Research Problem</strong> Explores how LLMs can support materials design workflows through retrieval and code generation.</p>
+<p><strong>Method</strong> * Fine-tuned LLM specialized for mechanics of materials * Retrieval-augmented generation * Multi-agent reasoning architecture * Library used: pyscf (Table 10) * Example tasks include calculation of energy and plotting graphs</p>
+<p><strong>Key Findings</strong> * Demonstrates working examples of code generation and RAG queries * Queries outside the training domain produce hallucinations * Generated code often required manual correction and iterative prompting * Notable figure - Table 10</p>
+</section>
+<section id="developing-large-language-models-for-quantum-chemistry-simulation-input-generation" class="level3">
+<h3 class="anchored" data-anchor-id="developing-large-language-models-for-quantum-chemistry-simulation-input-generation">Developing Large Language Models for Quantum Chemistry Simulation Input Generation</h3>
+<ul>
+<li>DOI:</li>
+<li>Repo: <a href="https://git.lwp.rug.nl/pollice-research-group/ORCAInputFileSynthesis">https://git.lwp.rug.nl/pollice-research-group/ORCAInputFileSynthesis</a></li>
+</ul>
+<p><strong>Research Problem</strong> Investigates whether LLMs can generate ORCA quantum chemistry input scripts.</p>
+<p><strong>Method</strong> * Foundational LLMs (e.g., GPT-3.5 Turbo) used. * Three approaches evaluated: Prompt Engineering, Retrieval-Augmented Generation (RAG), Fine-tuning using synthetic data. * Vector database for RAG implemented with FAISS</p>
+<p><strong>Key Findings</strong> * Fine-tuning produced the best performance * Even relatively small datasets significantly improved accuracy * Prompt engineering alone has limited reliability * RAG improves grounding but still produces structural errors * Figure 2: summary of experimental flow.</p>
+</section>
+<section id="applications-of-natural-language-processing-and-large-language-models-in-materials-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="applications-of-natural-language-processing-and-large-language-models-in-materials-discovery">Applications of Natural Language Processing and Large Language Models in Materials Discovery</h3>
+<ul>
+<li>DOI:</li>
+<li>Review Paper</li>
+<li>Literature survey across NLP and machine learning applications in materials discovery.</li>
+</ul>
+<p><strong>Key Topics Covered</strong> * Scientific literature mining * Property prediction * Materials design * Highlights the need for: + domain-specific datasets + better information extraction models + integration with simulation workflows</p>
+</section>
+<section id="mattools-benchmarking-large-language-models-for-materials-science-tools" class="level3">
+<h3 class="anchored" data-anchor-id="mattools-benchmarking-large-language-models-for-materials-science-tools">MatTools: Benchmarking Large Language Models for Materials Science Tools</h3>
+<ul>
+<li>DOI:</li>
+<li>Repo: <a href="https://github.com/Grenzlinie/MatTools">https://github.com/Grenzlinie/MatTools</a></li>
+</ul>
+<p><strong>Research Problem</strong> Develops a benchmark framework for evaluating LLMs on materials science tool usage.</p>
+<p><strong>Method</strong> * Evaluates different interaction paradigms: Pure LLM, Retrieval-augmented generation, Agentic workflows * Models tested include: Closed-source LLMs, Open-source models (notably Qwen series), Fine-tuned variants * Example library used: pymatgen</p>
+<p><strong>Key Findings</strong> * Agentic approaches often improve reliability * The paper identifies several categories of errors in LLM-generated simulation code, including: syntax errors, incorrect parameterization, invalid workflow logic * Figure 2 and Figure 3.</p>
+</section>
+<section id="enabling-large-language-models-for-real-world-materials-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="enabling-large-language-models-for-real-world-materials-discovery">Enabling Large Language Models for Real-World Materials Discovery</h3>
+<ul>
+<li>DOI:</li>
+<li>Review paper.</li>
+<li>Examines challenges that prevent LLMs from being reliably used in real materials discovery workflows.</li>
+<li>Provides numerous examples where LLMs fail on domain-specific scientific tasks</li>
+<li>Figure 1 – overview of LLM integration in materials science</li>
+<li>Table 2 – possible LLM tasks in the domain (including simulation code generation)</li>
 </ul>
 </section>
-<section id="dense-vectors" class="level3">
-<h3 class="anchored" data-anchor-id="dense-vectors">Dense Vectors</h3>
-<p>Characteristics:</p>
+<section id="foundation-models-for-materials-discovery-current-state-and-future-directions" class="level3">
+<h3 class="anchored" data-anchor-id="foundation-models-for-materials-discovery-current-state-and-future-directions">Foundation Models for Materials Discovery – Current State and Future Directions</h3>
 <ul>
-<li>encode semantic meaning</li>
-<li>compact representation</li>
-<li>fewer zero values</li>
+<li>DOI:</li>
+<li>Review paper.</li>
 </ul>
-<p>Dense vectors are commonly used in modern embedding models.</p>
-<hr>
 </section>
-</section>
-<section id="similarity-search" class="level2">
-<h2 class="anchored" data-anchor-id="similarity-search">Similarity Search</h2>
-<p>Vector databases retrieve relevant documents using similarity metrics.</p>
-<p>Common methods include:</p>
-<p><strong>Dot Product</strong></p>
+<section id="a-fine-tuned-large-language-model-based-molecular-dynamics-agent-for-code-generation-to-obtain-material-thermodynamic-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="a-fine-tuned-large-language-model-based-molecular-dynamics-agent-for-code-generation-to-obtain-material-thermodynamic-parameters">A Fine-Tuned Large Language Model Based Molecular Dynamics Agent for Code Generation to Obtain Material Thermodynamic Parameters</h3>
 <ul>
-<li>measures similarity between vectors.</li>
+<li>DOI:</li>
+<li>Repo: <a href="https://github.com/FredericVAN/PKU_MDAgent">https://github.com/FredericVAN/PKU_MDAgent</a></li>
 </ul>
-<p><strong>K-Nearest Neighbors (KNN)</strong></p>
-<ul>
-<li>retrieves the closest vectors based on distance metrics.</li>
-</ul>
-<p><strong>Approximate Nearest Neighbors (ANN)</strong></p>
-<ul>
-<li>improves efficiency for large vector datasets</li>
-<li>commonly used in production retrieval systems.</li>
-</ul>
-<hr>
+<p><strong>Research Problem</strong> Develops an LLM-based system for generating molecular dynamics simulation code.</p>
+<p><strong>Method</strong> * Fine-tuned LLMs used * Designed for generating simulation workflows * Focuses on extracting material thermodynamic parameters from simulations.</p>
+<p><strong>Key Findings</strong> * Shows improved code generation performance using fine-tuned models compared to base models. * Reliability still depends on prompt structure and domain constraints. * Figure 2 – architecture diagram</p>
 </section>
-<section id="retriever-centric-improvements" class="level2">
-<h2 class="anchored" data-anchor-id="retriever-centric-improvements">Retriever-Centric Improvements</h2>
-<p>Some research focuses on improving the <strong>retrieval stage</strong> of RAG rather than modifying the language model itself.</p>
-<p>Goals include:</p>
+<section id="agentic-framework-for-programmatic-crystal-structure-generation-using-a-fine-tuned-workersupervisor-large-language-model" class="level3">
+<h3 class="anchored" data-anchor-id="agentic-framework-for-programmatic-crystal-structure-generation-using-a-fine-tuned-workersupervisor-large-language-model">Agentic Framework for Programmatic Crystal Structure Generation Using a Fine-Tuned Worker–Supervisor Large Language Model</h3>
 <ul>
-<li>improving document relevance</li>
-<li>reducing hallucinations</li>
-<li>increasing retrieval accuracy.</li>
+<li>DOI:</li>
+<li>Repo: <a href="https://github.com/ViktoriiaBaib/T2S_LLM">https://github.com/ViktoriiaBaib/T2S_LLM</a></li>
 </ul>
-<hr>
-</section>
-<section id="chunking" class="level2">
-<h2 class="anchored" data-anchor-id="chunking">Chunking</h2>
-<p>Chunking refers to splitting documents into smaller units before generating embeddings.</p>
-<p>This is necessary because:</p>
-<ul>
-<li>LLM context windows are limited</li>
-<li>embeddings typically work best on smaller text segments.</li>
-</ul>
-<p>Chunking strategy significantly affects retrieval quality.</p>
-<section id="common-chunking-strategies" class="level3">
-<h3 class="anchored" data-anchor-id="common-chunking-strategies">Common Chunking Strategies</h3>
-<p><strong>Document-level chunking</strong></p>
-<ul>
-<li>each document treated as one unit.</li>
-</ul>
-<p><strong>Page-based chunking</strong></p>
-<ul>
-<li>chunks created based on page boundaries.</li>
-</ul>
-<p><strong>Text-block chunking</strong></p>
-<ul>
-<li>chunks generated based on natural paragraph boundaries.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="chunking-a-large-pdf" class="level2">
-<h2 class="anchored" data-anchor-id="chunking-a-large-pdf">Chunking a Large PDF</h2>
-<p>The LAMMPS manual is a 3000+ page PDF.</p>
-<p>To use it within a RAG system:</p>
-<ul>
-<li>Extract text from the PDF</li>
-<li>Separate metadata such as:
-<ul>
-<li>title</li>
-<li>author</li>
-<li>publication date</li>
-</ul></li>
-<li>Apply chunking</li>
-<li>Convert chunks into embeddings</li>
-<li>Store embeddings in a vector database.</li>
-</ul>
-<p>Chunking must preserve semantic coherence so that the retriever can identify meaningful context.</p>
-<hr>
-</section>
-</section>
-<section id="prototype-implementation" class="level1">
-<h1>Prototype Implementation</h1>
-<p>The current prototype follows a typical RAG pipeline.</p>
-<section id="core-components" class="level3">
-<h3 class="anchored" data-anchor-id="core-components">Core Components</h3>
-<p>Three main elements are required:</p>
-<ol type="1">
-<li><strong>Chat model</strong>
-<ul>
-<li>used for generating responses</li>
-</ul></li>
-<li><strong>Embedding model</strong>
-<ul>
-<li>converts text into vector representations</li>
-</ul></li>
-<li><strong>Vector database</strong>
-<ul>
-<li>stores embeddings and supports similarity search.</li>
-</ul></li>
-</ol>
-<hr>
-</section>
-<section id="prototype-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="prototype-workflow">Prototype Workflow</h2>
-<p>The workflow currently implemented is:</p>
-<ol type="1">
-<li>Chat model initialization</li>
-<li>Embedding model initialization</li>
-<li>Vector store setup</li>
-<li>Document loading</li>
-<li>Text splitting</li>
-<li>Storing document embeddings</li>
-<li>RAG agent creation</li>
-<li>Prompting and query handling</li>
-</ol>
-<p>Each stage includes configurable parameters that affect the quality of retrieval and generation.</p>
-<hr>
-</section>
-<section id="implementation-framework" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-framework">Implementation Framework</h2>
-<p>The prototype currently uses <strong>LangChain</strong>.</p>
-<p>Advantages:</p>
-<ul>
-<li>extensive third-party integrations</li>
-<li>modular components for LLMs, embeddings, and vector stores</li>
-<li>easier experimentation with different RAG architectures.</li>
-</ul>
-<hr>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li><a href="https://arxiv.org/pdf/2312.10997">https://arxiv.org/pdf/2312.10997</a></li>
-<li><a href="https://arxiv.org/pdf/2005.11401">https://arxiv.org/pdf/2005.11401</a></li>
-<li><a href="https://docs.langchain.com/oss/python/integrations/chat/huggingface">https://docs.langchain.com/oss/python/integrations/chat/huggingface</a></li>
-<li><a href="https://docs.langchain.com/oss/python/langchain/knowledge-base">Build a semantic search engine with LangChain</a></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="todo" class="level1">
-<h1>TODO</h1>
-<ul>
-<li><strong>Questions</strong>
-<ul class="task-list">
-<li><label><input type="checkbox">should the documentation be accessed as a static pdf downloaded (may get outdated after a major release or miss new additions) or we should use web-scraping to dynamically access the documentation using <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a></label></li>
-<li><label><input type="checkbox">optimum chunking parameters</label></li>
-<li><label><input type="checkbox">is it best to use <code>faiss</code> or something else like <code>chromaDB</code> for indexing</label></li>
-<li><label><input type="checkbox">better prompt design when creating the agent (read prompt engineering)</label></li>
-</ul></li>
-<li><strong>Copilot-like Assistant</strong>
-<ul>
-<li>it must work inside the file editing and either “generate” or “complete” the script from the current script context
-<ul>
-<li><code>code completion</code>: the llm use predicts the next lines of the script from the current file.</li>
-<li><code>contextual generation</code>: “write a script to calculate diffusion coefficient of X in Y alloy via LAMMPS”</li>
-</ul></li>
-<li>possible system components:
-<ul>
-<li>backend:
-<ul>
-<li>lammps RAG using <code>langchain</code></li>
-<li>using lammps documentation for retrieval</li>
-<li>api endpoint</li>
-</ul></li>
-<li>frontend as a VS code extention?
-<ul>
-<li>reads editor context</li>
-<li>sends request to backend</li>
-<li>displays suggestion</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+<p><strong>Research Problem</strong> Explores whether agentic LLM architectures can improve reliability in materials simulation code generation.</p>
+<p><strong>Method</strong> * Two-model agent system + Worker model: generates pymatgen code for crystal structures + Supervisor model: validates generated structures * The approach still relies on domain-specific validation tools.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

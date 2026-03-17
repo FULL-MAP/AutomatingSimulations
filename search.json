@@ -14,69 +14,6 @@
     "text": "DAMASK has a Python-based library for pre- and post-processing. It currently supports - Material configuration: General layout - Load case for the grid solver: General layout - Lacks support for - MSC.Marc input deck (combined geometry and load case) - Load case for the mesh solver - Geometry for the mesh solver\n\n\nThe documentation for constitutive models is fragmented: - The physics are documented in scientific publications (some beyond a paywall) - Parameter names are documented in source code (Fortran) - Example files for specific materials are provided (in YAML format)\n\n\n\nExample files for materials under different conditions can be provided, but variations are not trivial. An approach that might be more ammendable is the use of texture components.\n\n\n\n\nLAMMPS is configured with a single confiuration file."
   },
   {
-    "objectID": "direct.html",
-    "href": "direct.html",
-    "title": "Direct Support for Manual Creation of Input files",
-    "section": "",
-    "text": "Most simulation software can be controlled with (a set of) configuration files. These files are typically text files, i.e. they can be edited manually. LLMs can support this process.\n\n\nConventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”.\n\n\n\nLanguage Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim.\n\n\n\n\n\n\n\nDAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file.\n\n\n\n\n\n\n\nhttps://docs.lammps.org/commands_list.html"
-  },
-  {
-    "objectID": "direct.html#challenges",
-    "href": "direct.html#challenges",
-    "title": "Direct Support for Manual Creation of Input files",
-    "section": "",
-    "text": "Conventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”."
-  },
-  {
-    "objectID": "direct.html#technical-aspects",
-    "href": "direct.html#technical-aspects",
-    "title": "Direct Support for Manual Creation of Input files",
-    "section": "",
-    "text": "Language Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim."
-  },
-  {
-    "objectID": "direct.html#use-cases",
-    "href": "direct.html#use-cases",
-    "title": "Direct Support for Manual Creation of Input files",
-    "section": "",
-    "text": "DAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file."
-  },
-  {
-    "objectID": "direct.html#links",
-    "href": "direct.html#links",
-    "title": "Direct Support for Manual Creation of Input files",
-    "section": "",
-    "text": "https://docs.lammps.org/commands_list.html"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\naside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset\n\n\n\n\n\n\n\n\n\n\nollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)\n\n\n\n\n\n\nBentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK\nhttps://agentskills.so\nhttps://blog.fsck.com"
-  },
-  {
-    "objectID": "index.html#questions",
-    "href": "index.html#questions",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "aside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset"
-  },
-  {
-    "objectID": "index.html#technical-aspects",
-    "href": "index.html#technical-aspects",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "ollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)"
-  },
-  {
-    "objectID": "index.html#further-links",
-    "href": "index.html#further-links",
-    "title": "Automating Simulations",
-    "section": "",
-    "text": "BentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK\nhttps://agentskills.so\nhttps://blog.fsck.com"
-  },
-  {
     "objectID": "prototype-notes.html",
     "href": "prototype-notes.html",
     "title": "Prototype Notes",
@@ -166,5 +103,96 @@
     "title": "Prototype Notes",
     "section": "References",
     "text": "References\n\nhttps://arxiv.org/pdf/2312.10997\nhttps://arxiv.org/pdf/2005.11401\nhttps://docs.langchain.com/oss/python/integrations/chat/huggingface\nBuild a semantic search engine with LangChain"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "Setting up a simulation for materials science and engineering requires not only to understand the employed simulation technique but also proficient knowledge about the file format used to configure the simulation run. Large Language Models (LLMs) can provide support for that.\nAs part of the FULL-MAP project, co-researchers to support the simulation setup will be developed. The considered simulation tools are DAMASK and LAMMPS.\n\n\n\naside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset\n\n\n\n\n\n\n\n\n\n\nollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)\n\n\n\n\n\n\nBentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK\nhttps://agentskills.so\nhttps://blog.fsck.com"
+  },
+  {
+    "objectID": "index.html#questions",
+    "href": "index.html#questions",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "aside from fine-tuning a code LLM, what could be other techniques:\n\nRAG - less expensive.\n\nif fine-tuning then dataset generation?\n\nwe have the intended outputs from the simulation software examples\nwe dont have the natural language description of the scripts for example: “write an lammps script to compute the melting point of Copper” - stuff like this is missing // prompts (problem description) to output (input scripts) mapping is missing\nwe also do not have any dataset available for DAMASK - we have to create that\n\nbenchmarking?\n\nperformance of vanilla llm vs llm + RAG vs llm vs fine-tuned llm from custom dataset"
+  },
+  {
+    "objectID": "index.html#technical-aspects",
+    "href": "index.html#technical-aspects",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "ollama\n\n\n\n\nCreate input, run simulation: expensive\nFor LAMMPS: use existing checker\nFor DAMASK: YAML Lint (Python tool)"
+  },
+  {
+    "objectID": "index.html#further-links",
+    "href": "index.html#further-links",
+    "title": "Automating Simulations",
+    "section": "",
+    "text": "BentoML\nFINALES2\nhttps://github.com/huggingface/llm-ls\nhttps://github.com/rosarp/llm-lsp\nhttps://opencode.ai\nhttps://crates.io/crates/llm-lsp\nhttps://github.com/chenghao-wu/mcp_lammps\nhttps://github.com/SilasMarvin/lsp-ai\nAlloyBert\nAlloyGPT\nhttps://deepwiki.com/damask-multiphysics/DAMASK\nhttps://agentskills.so\nhttps://blog.fsck.com"
+  },
+  {
+    "objectID": "direct.html",
+    "href": "direct.html",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Most simulation software can be controlled with (a set of) configuration files. These files are typically text files, i.e. they can be edited manually. LLMs can support this process.\n\n\nConventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”.\n\n\n\nLanguage Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim.\n\n\n\n\n\n\n\nDAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file.\n\n\n\n\n\n\n\nhttps://docs.lammps.org/commands_list.html"
+  },
+  {
+    "objectID": "direct.html#challenges",
+    "href": "direct.html#challenges",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Conventional tools are mainly used for syntax checks, i.e. they know very little about the semantics. That works for typical programming languages that have a rather small set of keywords and their use does not strongly depend on the context. This is very different from configuration files, where syntax checks (e.g. in the case of a YAML format) does not add a lot of value.\nSupport for binary formats would be difficult.\nPlain LLM’s are not particularly good at math, i.e. they will be less suited to respect contraints such as “the norm of the four numbers making up a unit quaternion should be 1.0”."
+  },
+  {
+    "objectID": "direct.html#technical-aspects",
+    "href": "direct.html#technical-aspects",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "Language Server Protocol, more information on langserver.org.\nTree-sitter\n\n\n\nLSP-AI\nllm-ls\nllm-lsp\nLSP (MCP)\ncclsp (MCP)\nMCP LSP Bridge (MCP)\nGitHub Copilot Language Server\nllmvm: Different approach, needs existing LSP.\nllm-lsp.nvim: Hybrid, specific to neovim."
+  },
+  {
+    "objectID": "direct.html#use-cases",
+    "href": "direct.html#use-cases",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "DAMASK supports multiple solvers, all of them have custom definitions of geometry and load case but share a common configuration for material and numerics.\n\n\n\nLAMMPS is configured with a single confiuration file."
+  },
+  {
+    "objectID": "direct.html#links",
+    "href": "direct.html#links",
+    "title": "Direct Support for Manual Creation of Input files",
+    "section": "",
+    "text": "https://docs.lammps.org/commands_list.html"
+  },
+  {
+    "objectID": "literature-notes.html",
+    "href": "literature-notes.html",
+    "title": "Literature Notes",
+    "section": "",
+    "text": "This page summarizes research papers on the use of large language models in materials science workflows, particularly for simulation code generation, retrieval-augmented generation, and agentic systems. The goal is to track emerging methods and implementation patterns relevant to computational materials research."
+  },
+  {
+    "objectID": "literature-notes.html#literature-map",
+    "href": "literature-notes.html#literature-map",
+    "title": "Literature Notes",
+    "section": "Literature Map",
+    "text": "Literature Map\n\n\n\n\n\ngraph TD\n\nclassDef review fill:#e8f0ff,stroke:#3b6edc\nclassDef code fill:#e8ffe8,stroke:#2e8b57\nclassDef bench fill:#fff4e6,stroke:#d48806\nclassDef agent fill:#f6e8ff,stroke:#7a3ddc\n\nA[LLMs for Materials Science]\n\nA --&gt; B[Reviews]\nA --&gt; C[Code Generation]\nA --&gt; D[Benchmarking]\nA --&gt; E[Agentic Frameworks]\n\nB --&gt; B1[Applications of NLP and LLMs in Materials Discovery 2025]\nB --&gt; B2[Enabling LLMs for Real-World Materials Discovery 2024]\nB --&gt; B3[Foundation Models for Materials Discovery 2025]\n\nC --&gt; C1[Generative Retrieval-Augmented Ontologic Graph 2024]\nC --&gt; C2[Quantum Chemistry Input Generation 2025]\nC --&gt; C3[Molecular Dynamics Agent 2025]\n\nD --&gt; D1[MatTools Benchmark 2025]\n\nE --&gt; E1[Crystal Structure Generation Agent 2026]\n\nclass B,B1,B2,B3 review\nclass C,C1,C2,C3 code\nclass D,D1 bench\nclass E,E1 agent"
+  },
+  {
+    "objectID": "literature-notes.html#thematic-areas",
+    "href": "literature-notes.html#thematic-areas",
+    "title": "Literature Notes",
+    "section": "Thematic Areas",
+    "text": "Thematic Areas\n\nReview Articles: Survey papers describing the landscape of LLM applications in materials science and identifying challenges\nLLMs for Code Generation: Work focusing on generating simulation scripts, computational workflows, or scientific programs from natural language prompts.\nBenchmarking: Research evaluating LLM performance on domain-specific tasks such as materials simulation code generation.\nAgentic Frameworks: Systems where multiple LLM agents collaborate to generate and validate outputs."
+  },
+  {
+    "objectID": "literature-notes.html#paper-notes",
+    "href": "literature-notes.html#paper-notes",
+    "title": "Literature Notes",
+    "section": "Paper Notes",
+    "text": "Paper Notes\n\nGenerative Retrieval-Augmented Ontologic Graph and Multiagent Strategies for Interpretive Large Language Model-Based Materials Design\n\nDOI:\nRepo: https://github.com/lamm-mit/MeLM\n\nResearch Problem Explores how LLMs can support materials design workflows through retrieval and code generation.\nMethod * Fine-tuned LLM specialized for mechanics of materials * Retrieval-augmented generation * Multi-agent reasoning architecture * Library used: pyscf (Table 10) * Example tasks include calculation of energy and plotting graphs\nKey Findings * Demonstrates working examples of code generation and RAG queries * Queries outside the training domain produce hallucinations * Generated code often required manual correction and iterative prompting * Notable figure - Table 10\n\n\nDeveloping Large Language Models for Quantum Chemistry Simulation Input Generation\n\nDOI:\nRepo: https://git.lwp.rug.nl/pollice-research-group/ORCAInputFileSynthesis\n\nResearch Problem Investigates whether LLMs can generate ORCA quantum chemistry input scripts.\nMethod * Foundational LLMs (e.g., GPT-3.5 Turbo) used. * Three approaches evaluated: Prompt Engineering, Retrieval-Augmented Generation (RAG), Fine-tuning using synthetic data. * Vector database for RAG implemented with FAISS\nKey Findings * Fine-tuning produced the best performance * Even relatively small datasets significantly improved accuracy * Prompt engineering alone has limited reliability * RAG improves grounding but still produces structural errors * Figure 2: summary of experimental flow.\n\n\nApplications of Natural Language Processing and Large Language Models in Materials Discovery\n\nDOI:\nReview Paper\nLiterature survey across NLP and machine learning applications in materials discovery.\n\nKey Topics Covered * Scientific literature mining * Property prediction * Materials design * Highlights the need for: + domain-specific datasets + better information extraction models + integration with simulation workflows\n\n\nMatTools: Benchmarking Large Language Models for Materials Science Tools\n\nDOI:\nRepo: https://github.com/Grenzlinie/MatTools\n\nResearch Problem Develops a benchmark framework for evaluating LLMs on materials science tool usage.\nMethod * Evaluates different interaction paradigms: Pure LLM, Retrieval-augmented generation, Agentic workflows * Models tested include: Closed-source LLMs, Open-source models (notably Qwen series), Fine-tuned variants * Example library used: pymatgen\nKey Findings * Agentic approaches often improve reliability * The paper identifies several categories of errors in LLM-generated simulation code, including: syntax errors, incorrect parameterization, invalid workflow logic * Figure 2 and Figure 3.\n\n\nEnabling Large Language Models for Real-World Materials Discovery\n\nDOI:\nReview paper.\nExamines challenges that prevent LLMs from being reliably used in real materials discovery workflows.\nProvides numerous examples where LLMs fail on domain-specific scientific tasks\nFigure 1 – overview of LLM integration in materials science\nTable 2 – possible LLM tasks in the domain (including simulation code generation)\n\n\n\nFoundation Models for Materials Discovery – Current State and Future Directions\n\nDOI:\nReview paper.\n\n\n\nA Fine-Tuned Large Language Model Based Molecular Dynamics Agent for Code Generation to Obtain Material Thermodynamic Parameters\n\nDOI:\nRepo: https://github.com/FredericVAN/PKU_MDAgent\n\nResearch Problem Develops an LLM-based system for generating molecular dynamics simulation code.\nMethod * Fine-tuned LLMs used * Designed for generating simulation workflows * Focuses on extracting material thermodynamic parameters from simulations.\nKey Findings * Shows improved code generation performance using fine-tuned models compared to base models. * Reliability still depends on prompt structure and domain constraints. * Figure 2 – architecture diagram\n\n\nAgentic Framework for Programmatic Crystal Structure Generation Using a Fine-Tuned Worker–Supervisor Large Language Model\n\nDOI:\nRepo: https://github.com/ViktoriiaBaib/T2S_LLM\n\nResearch Problem Explores whether agentic LLM architectures can improve reliability in materials simulation code generation.\nMethod * Two-model agent system + Worker model: generates pymatgen code for crystal structures + Supervisor model: validates generated structures * The approach still relies on domain-specific validation tools."
   }
 ]
